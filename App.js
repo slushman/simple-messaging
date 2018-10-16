@@ -1,21 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
+class App extends Component {
+	renderInputMethodEditor() {
+		return (
+			<View style={ styles.inputMethodEditor }></View>
+		);
+	}
+	renderMessageList() {
+		return (
+			<View style={ styles.content }></View>
+		);
+	}
+	renderToolbar() {
+		return (
+			<View style={ styles.toolbar }></View>
+		);
+	}
+	render() {
+		return (
+			<View style={ styles.container }>
+				{ this.renderMessageList() }
+				{ this.renderToolbar() }
+				{ this.renderInputMethodEditor() }
+			</View>
+		);
+	}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create( {
+	container: {
+		backgroundColor: '#fff',
+		flex: 1,
+	},
+	content: {
+		backgroundColor: '#fff',
+		flex: 1,
+	},
+	inputMethodEditor: {
+		backgroundColor: '#fff',
+		flex: 1,
+	},
+	toolbar: {
+		backgroundColor: 'white',
+		borderTopColor: 'rgba(0,0,0,0.04)',
+		borderTopWidth: 1,
+	},
+} );
+
+export default App;
