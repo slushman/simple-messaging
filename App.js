@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import Status from './components/Status';
+
 class App extends Component {
 	renderInputMethodEditor() {
 		return (
@@ -20,6 +22,7 @@ class App extends Component {
 	render() {
 		return (
 			<View style={ styles.container }>
+				<Status />
 				{ this.renderMessageList() }
 				{ this.renderToolbar() }
 				{ this.renderInputMethodEditor() }
