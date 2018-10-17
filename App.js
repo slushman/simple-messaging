@@ -2,16 +2,34 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Status from './components/Status';
+import MessageList from './components/MessageList';
+
+import { createImageMessage, createLocationMessage, createTextMessage } from './utils/MessageUtils';
 
 class App extends Component {
+	state = {
+		messages: [
+			createImageMessage( 'https://unsplash.it/300/300' ),
+			createTextMessage( 'World' ),
+			createTextMessage( 'Hello' ),
+			createLocationMessage( {
+				latitude: 37.78825,
+				longitude: -122.4324,
+			} ),
+		],
+	};
+	handlePressMessage = () => {};
 	renderInputMethodEditor() {
 		return (
 			<View style={ styles.inputMethodEditor }></View>
 		);
 	}
 	renderMessageList() {
+		const { messages } = this.state;
 		return (
-			<View style={ styles.content }></View>
+			<View style={ styles.content }>
+				<MessageList messages={ messages } onPressMessage={ this.handlePressMessage } />
+			</View>
 		);
 	}
 	renderToolbar() {
